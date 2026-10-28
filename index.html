@@ -1,0 +1,859 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PARADISE — Lust · An Interactive Character Portfolio</title>
+  <meta name="description" content="PARADISE — an interactive, unofficial fan-made OC × Marvel character portfolio for Lust, owner of a windowless tower of clubs, casinos and secrets. Created by TST Project.">
+  <meta name="theme-color" content="#080A09">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="PARADISE — Lust">
+  <meta property="og:description" content="An interactive character portfolio. Unofficial fan-made OC × Marvel project by TST Project.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/images/lust/theater-of-serpents-960.webp">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Thai:wght@300;400;500;600&display=swap">
+  <link rel="preload" as="image" href="assets/images/lust/theater-of-serpents-960.webp" imagesrcset="assets/images/lust/theater-of-serpents-960.webp 960w, assets/images/lust/theater-of-serpents.webp 2000w" imagesizes="(min-width: 960px) 46vw, 92vw">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#lobby-main">Skip to the lobby</a>
+
+  <!-- Custom cursor (decorative, pointer-events: none) -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor__ring"></div>
+    <div class="cursor__mark">
+      <svg viewBox="0 0 24 24" width="24" height="24"><path class="cursor__diamond" d="M12 3 L17 12 L12 21 L7 12 Z"/><path class="cursor__slash" d="M5 19 L19 5"/></svg>
+    </div>
+  </div>
+
+  <button class="sound-toggle" type="button" aria-pressed="false" data-sound-toggle>
+    <span class="sound-toggle__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="sound-toggle__label">SOUND OFF</span>
+  </button>
+
+  <div class="sr-status" role="status" aria-live="polite" data-announcer></div>
+
+  <!-- ===================== THE INVITATION ===================== -->
+  <section id="invitation" class="invitation" aria-labelledby="invitation-title">
+    <div class="invitation__arches" aria-hidden="true">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="inv-floor" cx="50%" cy="100%" r="60%">
+            <stop offset="0" stop-color="#25382D" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#080A09" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#inv-floor)"/>
+        <g fill="none" stroke="#A38A5B" stroke-width="1">
+          <path d="M100 800 V330 A500 500 0 0 1 1100 330 V800" opacity=".16"/>
+          <path d="M230 800 V360 A370 370 0 0 1 970 360 V800" opacity=".13"/>
+          <path d="M340 800 V390 A260 260 0 0 1 860 390 V800" opacity=".11"/>
+          <path d="M430 800 V420 A170 170 0 0 1 770 420 V800" opacity=".09"/>
+          <path d="M500 800 V450 A100 100 0 0 1 700 450 V800" opacity=".08"/>
+          <path d="M0 800 L500 560 M1200 800 L700 560 M0 700 L500 545 M1200 700 L700 545" opacity=".07"/>
+        </g>
+        <g fill="#101C17" opacity=".9">
+          <rect x="0" y="0" width="70" height="800"/><rect x="1130" y="0" width="70" height="800"/>
+        </g>
+      </svg>
+    </div>
+    <div class="invitation__glow" aria-hidden="true"></div>
+
+    <div class="invite-frame" data-invite-frame>
+      <span class="invite-frame__corner invite-frame__corner--tl" aria-hidden="true"></span>
+      <span class="invite-frame__corner invite-frame__corner--bl" aria-hidden="true"></span>
+      <span class="invite-frame__corner invite-frame__corner--br" aria-hidden="true"></span>
+      <span class="invite-frame__scar" aria-hidden="true"></span>
+
+      <p class="eyebrow">BY INVITATION ONLY · Nº 000</p>
+      <h1 id="invitation-title" class="wordmark">PARADISE</h1>
+      <div class="ornament-rule" aria-hidden="true"><span></span></div>
+      <p class="invite-frame__text" lang="th">คำเชิญนี้ออกให้เพียงครั้งเดียว ประตูของ Paradise เปิดต้อนรับทุกคนที่เดินเข้ามา<br>แต่ยังไม่เคยมีใครจำได้ว่า ทางออกอยู่ตรงไหน</p>
+
+      <p class="invite-frame__hint" data-apple-hint>TAKE THE APPLE TO ENTER <span aria-hidden="true">↗</span></p>
+      <p class="invite-frame__verdict" lang="th" data-apple-verdict hidden>บางการตัดสินใจ เมื่อเลือกแล้ว ไม่อาจย้อนคืนได้อีก</p>
+      <div class="invite-frame__actions">
+        <button class="btn btn--gold" type="button" data-enter hidden>ENTER PARADISE</button>
+        <button class="btn btn--ghost" type="button" data-skip-fall hidden>SKIP ANIMATION</button>
+      </div>
+
+      <button class="apple" type="button" data-apple aria-label="Take the apple — enter Paradise">
+        <svg class="apple__svg" viewBox="0 0 120 132" aria-hidden="true">
+          <defs>
+            <radialGradient id="apple-body" cx="36%" cy="40%" r="72%">
+              <stop offset="0" stop-color="#b03a44"/>
+              <stop offset=".32" stop-color="#8C2934"/>
+              <stop offset=".7" stop-color="#5c121c"/>
+              <stop offset="1" stop-color="#22060a"/>
+            </radialGradient>
+            <radialGradient id="apple-hi" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#f5e6dc" stop-opacity=".75"/>
+              <stop offset=".45" stop-color="#f5e6dc" stop-opacity=".18"/>
+              <stop offset="1" stop-color="#f5e6dc" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="apple-cavity" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#1a0407" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#1a0407" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="apple-rim" x1="0" x2="1" y1="0" y2="0">
+              <stop offset=".6" stop-color="#4f7a5e" stop-opacity="0"/>
+              <stop offset="1" stop-color="#4f7a5e" stop-opacity=".55"/>
+            </linearGradient>
+            <linearGradient id="apple-leaf" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#3e5c45"/>
+              <stop offset="1" stop-color="#1c2d22"/>
+            </linearGradient>
+            <clipPath id="apple-clip"><path d="M60 31 C47 20 21 18 13 43 C5 68 18 104 40 117 C48 122 54 120 60 116 C66 120 72 122 80 117 C102 104 115 68 107 43 C99 18 73 20 60 31 Z"/></clipPath>
+          </defs>
+          <ellipse class="apple__shadow" cx="60" cy="126" rx="34" ry="5" fill="#000" opacity=".45"/>
+          <path d="M60 31 C47 20 21 18 13 43 C5 68 18 104 40 117 C48 122 54 120 60 116 C66 120 72 122 80 117 C102 104 115 68 107 43 C99 18 73 20 60 31 Z" fill="url(#apple-body)"/>
+          <g clip-path="url(#apple-clip)">
+            <path d="M34 30 C24 55 26 90 42 118" stroke="#3a0a10" stroke-width="5" fill="none" opacity=".35"/>
+            <path d="M84 28 C98 52 96 92 78 118" stroke="#3a0a10" stroke-width="6" fill="none" opacity=".3"/>
+            <path d="M58 36 C56 64 58 96 60 118" stroke="#a8323d" stroke-width="3" fill="none" opacity=".25"/>
+            <path d="M46 34 C40 62 44 94 52 118" stroke="#b5434c" stroke-width="2" fill="none" opacity=".18"/>
+            <rect x="0" y="0" width="120" height="132" fill="url(#apple-rim)"/>
+            <ellipse cx="60" cy="125" rx="46" ry="18" fill="#140306" opacity=".55"/>
+          </g>
+          <ellipse cx="60" cy="33" rx="13" ry="6" fill="url(#apple-cavity)"/>
+          <ellipse class="apple__highlight" cx="38" cy="50" rx="11" ry="17" transform="rotate(-24 38 50)" fill="url(#apple-hi)"/>
+          <ellipse cx="44" cy="40" rx="3" ry="2" fill="#fff" opacity=".35"/>
+          <g fill="#e9c9b0" opacity=".28">
+            <circle cx="70" cy="58" r=".9"/><circle cx="80" cy="74" r=".8"/><circle cx="52" cy="82" r=".9"/><circle cx="66" cy="92" r=".7"/><circle cx="88" cy="56" r=".7"/><circle cx="40" cy="72" r=".7"/><circle cx="76" cy="100" r=".8"/>
+          </g>
+          <path d="M60 33 C60 24 62 15 67 8" stroke="#3b2a1c" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M60 33 C60 24 62 15 67 8" stroke="#6b5136" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".7"/>
+          <path class="apple__leaf" d="M64 17 C72 4 92 2 100 9 C92 20 76 24 64 17 Z" fill="url(#apple-leaf)"/>
+          <path d="M65 16.5 C76 12 88 9 99 9" stroke="#557a5f" stroke-width=".8" fill="none" opacity=".7"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================== LOBBY ===================== -->
+  <header class="site-header" data-site-header>
+    <a class="site-header__mark" href="#lobby" aria-label="PARADISE — back to the lobby">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2 L19 12 L12 22 L5 12 Z" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M12 7 L15.5 12 L12 17 L8.5 12 Z" fill="#8C2934"/></svg>
+      <span>PARADISE</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>MENU</button>
+    <nav id="site-nav" class="site-nav" aria-label="Rooms of Paradise">
+      <ul>
+        <li><a href="#character" data-room-link>CHARACTER FILE</a></li>
+        <li><a href="#biography" data-room-link>BIOGRAPHY</a></li>
+        <li><a href="#relationships" data-room-link>RELATIONSHIPS</a></li>
+        <li><a href="#abilities" data-room-link>ABILITIES</a></li>
+        <li><a href="#club" data-room-link>PARADISE CLUB</a></li>
+        <li><a href="#rubicon" data-room-link>RUBICON — SEED</a></li>
+        <li><a href="#sins" data-room-link>THE SEVEN SINS</a></li>
+        <li><a href="#gallery" data-room-link>GALLERY</a></li>
+        <li><a href="#credits" data-room-link>CREDITS</a></li>
+        <li><a href="#invitation" data-invitation-link>THE INVITATION</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="lobby-main" class="lobby" tabindex="-1">
+    <section id="lobby" class="lobby-hero" aria-labelledby="lobby-title" data-serpent-host="wander">
+      <div class="lobby-hero__art">
+        <figure class="hero-frame">
+          <button class="hero-frame__button" type="button" data-lightbox-open="0" aria-label="Enlarge artwork: Lust in the theater of serpents">
+            <img src="assets/images/lust/theater-of-serpents-960.webp"
+                 srcset="assets/images/lust/theater-of-serpents-960.webp 960w, assets/images/lust/theater-of-serpents.webp 2000w"
+                 sizes="(min-width: 960px) 46vw, 92vw" width="2000" height="2000" fetchpriority="high" decoding="async"
+                 alt="Lust lounging across red theater seats, holding up a gold skull mask, black serpents coiling over the rows while a faceless man in a dark suit sits behind her.">
+          </button>
+          <button class="skull-ornament" type="button" data-inscription aria-describedby="inscription-text" aria-label="Gilded ornament">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 C11 4 6 10 6 17 C6 22 9 25 11 26 V31 H16 V28 H18 V32 H22 V28 H24 V31 H29 V26 C31 25 34 22 34 17 C34 10 29 4 20 4 Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="14.5" cy="17" r="3.4" fill="currentColor"/><circle cx="25.5" cy="17" r="3.4" fill="currentColor"/><path d="M20 20 L18 24 H22 Z" fill="currentColor"/></svg>
+          </button>
+          <p id="inscription-text" class="inscription" lang="th" role="tooltip">ทุกประตูในที่แห่งนี้เปิดเข้าด้านใน<br>ไม่มีบานไหนถูกสร้างมาให้เปิดออก</p>
+        </figure>
+      </div>
+      <div class="lobby-hero__text">
+        <p class="eyebrow">THE LOBBY · FLOOR G · NO WINDOWS</p>
+        <h2 id="lobby-title" class="wordmark wordmark--lobby">PARADISE</h2>
+        <p class="lobby-hero__sub">The house of <em>Lust</em></p>
+        <div class="ornament-rule ornament-rule--left" aria-hidden="true"><span></span></div>
+        <div class="prose" lang="th">
+          <p>ยินดีต้อนรับสู่ Paradise อาคารสูงที่ไม่มีหน้าต่างแม้แต่บานเดียว ภายในรวมคลับหรู โรงแรม บาร์ คาสิโน และห้องรับรองส่วนตัวไว้ใต้หลังคาเดียวกัน</p>
+          <p>เจ้าของสถานที่แห่งนี้คือ <strong>เพลินพริ้ม ดาฤดี เทวอนันต์</strong> ผู้ที่โลกใต้ดินรู้จักในนาม <strong>Lust</strong> หนึ่งในสมาชิกกลุ่ม 7 บาป เธอเปิดประตูให้ผู้ที่ไม่มีที่ไป และไม่เคยลืมว่าใครอยู่ใต้หลังคาของเธอ</p>
+        </div>
+        <a class="btn btn--gold" href="#corridor">WALK THE CORRIDOR</a>
+      </div>
+    </section>
+
+    <section id="corridor" class="corridor" aria-labelledby="corridor-title">
+      <div class="corridor__head" data-serpent-host="divider">
+        <p class="eyebrow">CHOOSE A DOOR</p>
+        <h2 id="corridor-title" class="section-title">THE CORRIDOR</h2>
+        <p class="corridor__note" lang="th">ประตูทุกบานพาคุณไปยังห้องที่ต่างกัน — กลับมาที่ล็อบบี้ได้เสมอ หากคุณยังหาทางกลับเจอ</p>
+      </div>
+
+      <ul class="doors" role="list">
+        <li><a class="door" href="#character" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">01</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">CHARACTER FILE</span></a></li>
+        <li><a class="door" href="#biography" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">02</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">BIOGRAPHY</span></a></li>
+        <li><a class="door" href="#relationships" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">03</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">RELATIONSHIPS</span></a></li>
+        <li><a class="door" href="#abilities" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">04</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">ABILITIES</span></a></li>
+        <li><a class="door" href="#club" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">05</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">PARADISE CLUB</span></a></li>
+        <li><a class="door door--crimson" href="#rubicon" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">06</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">RUBICON — SEED</span></a></li>
+        <li><a class="door" href="#sins" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">07</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">THE SEVEN SINS</span></a></li>
+        <li><a class="door" href="#gallery" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">08</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">GALLERY</span></a></li>
+        <li><a class="door" href="#credits" data-door><span class="door__frame"><span class="door__leaf"><span class="door__plate">09</span><span class="door__handle"></span></span><span class="door__light"></span></span><span class="door__label">CREDITS</span></a></li>
+        <li><a class="door door--locked" href="#office" data-door data-locked aria-describedby="locked-note"><span class="door__frame"><span class="door__leaf"><span class="door__plate">000</span><span class="door__handle"></span><span class="door__lock" aria-hidden="true"></span></span><span class="door__light"></span></span><span class="door__label">PRIVATE — 000</span></a></li>
+      </ul>
+      <p id="locked-note" class="locked-note" data-locked-note>LOCKED · THE KEY IS SOMEWHERE INSIDE THE CLUB</p>
+    </section>
+  </main>
+
+  <!-- ===================== ROOMS ===================== -->
+  <div class="veil" aria-hidden="true" data-veil></div>
+
+  <!-- 01 CHARACTER FILE -->
+  <section id="character" class="room room--dossier" role="dialog" aria-modal="true" aria-labelledby="character-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 01</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">CLASSIFIED · SUBJECT DOSSIER</p>
+        <h2 id="character-title" class="section-title" tabindex="-1">CHARACTER FILE</h2>
+      </header>
+
+      <div class="dossier">
+        <div class="dossier__art">
+          <div class="dossier__panel" aria-hidden="true"></div>
+          <figure class="cutout" data-mask-figure>
+            <img class="cutout__img cutout__img--face" src="assets/images/lust/lust-cutout-960.webp"
+                 srcset="assets/images/lust/lust-cutout-960.webp 960w, assets/images/lust/lust-cutout.webp 2000w" sizes="(min-width: 960px) 52vw, 96vw"
+                 width="2000" height="1390" loading="lazy" decoding="async"
+                 alt="Full-body illustration of Lust seated on the floor in a dark green open jacket and black trousers, long wavy black hair, smiling at the viewer.">
+            <img class="cutout__img cutout__img--mask" src="assets/images/lust/lust-cutout-skull-mask-960.webp"
+                 srcset="assets/images/lust/lust-cutout-skull-mask-960.webp 960w, assets/images/lust/lust-cutout-skull-mask.webp 2000w" sizes="(min-width: 960px) 52vw, 96vw"
+                 width="2000" height="1390" loading="lazy" decoding="async"
+                 alt="The same pose in warmer tones, Lust's face hidden behind a pale skull mask with fanged teeth.">
+          </figure>
+          <button class="btn btn--ghost dossier__mask" type="button" aria-pressed="false" data-mask-toggle>SHOW THE MASK</button>
+        </div>
+
+        <div class="dossier__file">
+          <div class="stamp" aria-hidden="true">CLASSIFIED</div>
+          <dl class="facts">
+            <div><dt>ALIAS</dt><dd lang="th">Lust (ลัสท์)</dd></div>
+            <div><dt>REAL NAME <span lang="th">· ชื่อจริง</span></dt><dd lang="th">เพลินพริ้ม ดาฤดี เทวอนันต์</dd></div>
+            <div><dt>NATIONALITY <span lang="th">· สัญชาติ</span></dt><dd lang="th"><span class="redact" aria-hidden="true"></span> ยังไม่ระบุแน่ชัด; มีพื้นเพเป็นชาวเอเชีย</dd></div>
+            <div><dt>SEX <span lang="th">· เพศ</span></dt><dd lang="th">หญิง</dd></div>
+            <div><dt>HEIGHT <span lang="th">· ส่วนสูง</span></dt><dd lang="th">ประมาณ 160 ซม. และประมาณ 170 ซม. เมื่อสวมรองเท้าส้นสูง</dd></div>
+            <div><dt>APPARENT AGE <span lang="th">· อายุที่ปรากฏภายนอก</span></dt><dd lang="th">ประมาณปลายวัย 20</dd></div>
+            <div><dt>STATUS <span lang="th">· สถานะ</span></dt><dd lang="th">หนึ่งในสมาชิกกลุ่ม 7 บาป</dd></div>
+            <div><dt>BASE OF OPERATIONS <span lang="th">· ฐานปฏิบัติการ</span></dt><dd lang="th">Paradise อาคารสูงที่รวมสถานบันเทิงและธุรกิจหลายประเภท</dd></div>
+          </dl>
+          <div class="file-note" lang="th">
+            <p class="file-note__label">ANALYST NOTE</p>
+            <p>ข้อมูลบางส่วนในแฟ้มนี้ยังคงว่างเปล่าโดยเจตนา สิ่งที่ยืนยันได้มีเพียงชื่อ ที่ตั้ง และตำแหน่งในกลุ่ม 7 บาป ส่วนที่เหลือ เธอเลือกเองว่าจะให้ใครรู้</p>
+          </div>
+          <div class="dossier__links">
+            <a class="text-link" href="#biography" data-room-link>OPEN BIOGRAPHY →</a>
+            <a class="text-link" href="#abilities" data-room-link>OPEN ABILITIES →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 BIOGRAPHY -->
+  <section id="biography" class="room room--biography" role="dialog" aria-modal="true" aria-labelledby="biography-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 02</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">RECOVERED FRAGMENTS · 11 ENTRIES</p>
+        <h2 id="biography-title" class="section-title" tabindex="-1">BIOGRAPHY</h2>
+        <p class="room__lede" lang="th">เธอไม่ใช่วีรสตรี และไม่ใช่ปีศาจเพียงด้านเดียว ทุกสิ่งที่เธอสร้างขึ้นเริ่มจากบาดแผล และทุกความช่วยเหลือที่เธอมอบให้ ล้วนมีราคาของมันเสมอ</p>
+        <nav class="chapter-nav" aria-label="Biography chapters">
+          <a href="#bio-origin">I · ORIGIN</a>
+          <a href="#bio-love">II · THE FIRST LOVE</a>
+          <a href="#bio-paradise">III · PARADISE</a>
+          <a href="#bio-fall">IV · THE FALL</a>
+          <a href="#bio-contract">V · THE CONTRACT</a>
+          <a href="#bio-cycle">VI · THE CYCLE</a>
+        </nav>
+      </header>
+
+      <ol class="timeline" data-serpent-host="spine">
+        <li class="timeline__chapter" id="bio-origin"><span>I · ORIGIN</span></li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 01</p>
+          <h3 class="fragment__title" lang="th">ลูกสาวของนักการทูต</h3>
+          <p lang="th">เพลินพริ้มเติบโตมาในครอบครัวนักการทูตชาวไทย ก่อนที่ครอบครัวจะย้ายเข้าสู่ธุรกิจกฎหมายในสหรัฐอเมริกา เธอโตมากับโลกของการเจรจา ถ้อยคำทางการ และกฎเกณฑ์ที่ผู้มีอำนาจรู้วิธีหลบเลี่ยง</p>
+        </li>
+
+        <li class="timeline__chapter" id="bio-love"><span>II · THE FIRST LOVE</span></li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 02</p>
+          <h3 class="fragment__title" lang="th">มหาวิทยาลัย</h3>
+          <p lang="th">ในช่วงที่ยังศึกษาอยู่มหาวิทยาลัย เธอมีความสัมพันธ์กับโทนี่ สตาร์ค ความรักครั้งแรกที่ต่อมากลายเป็นแกนกลางของเกือบทุกการตัดสินใจในชีวิตเธอ</p>
+        </li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 03</p>
+          <h3 class="fragment__title" lang="th">เมื่อเขากลายเป็นฮีโร่</h3>
+          <p lang="th">หลังโทนี่กลายเป็นฮีโร่ ความสัมพันธ์เริ่มเต็มไปด้วยความน้อยใจ การเรียกร้องความสนใจ และพฤติกรรมที่เป็นพิษ โลกทั้งใบหันไปมองเขา และเธอไม่เคยยอมเป็นเพียงคนที่ยืนอยู่ข้างหลัง</p>
+        </li>
+        <li class="fragment fragment--art" data-reveal>
+          <figure class="cinema">
+            <button class="cinema__button" type="button" data-lightbox-open="1" aria-label="Enlarge artwork: the red room">
+              <img src="assets/images/lust/red-room-telephone-960.webp"
+                   srcset="assets/images/lust/red-room-telephone-960.webp 960w, assets/images/lust/red-room-telephone.webp 2000w" sizes="(min-width: 1100px) 900px, 92vw"
+                   width="2000" height="1514" loading="lazy" decoding="async"
+                   alt="Lust lying upside down on a deep red floor, a telephone receiver held to her ear, a heart-shaped box and a handwritten letter beside her.">
+            </button>
+            <figcaption>EXHIBIT A · THE RED ROOM</figcaption>
+          </figure>
+        </li>
+
+        <li class="timeline__chapter" id="bio-paradise"><span>III · PARADISE</span></li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 04</p>
+          <h3 class="fragment__title" lang="th">การกำเนิดของ Paradise</h3>
+          <p lang="th">หลังเลิกรากัน เธอสร้าง Paradise คลับหรูที่มีธุรกิจหลากหลายอยู่ภายใน และค่อย ๆ เข้าไปพัวพันกับเครือข่ายธุรกิจสีเทาและผิดกฎหมาย ทีละชั้น ทีละห้อง จนเส้นแบ่งเลือนหายไป</p>
+        </li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 05</p>
+          <h3 class="fragment__title" lang="th">ที่พักพิง หรือกรงขัง</h3>
+          <p lang="th">เธอเปิดพื้นที่ให้มิวแทนต์ที่ไม่มีทางเลือกเข้ามาทำงาน โดยเสนอที่พัก อาหาร รายได้ และสวัสดิการ สำหรับบางคน นี่คือที่หลบภัยแห่งแรกในชีวิต สำหรับอีกหลายคน นี่คือข้อตกลงที่ไม่มีทางปฏิเสธ — ระหว่างการช่วยเหลือกับการควบคุม เส้นนั้นบางจนแทบมองไม่เห็น</p>
+        </li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 06</p>
+          <h3 class="fragment__title" lang="th">Lust</h3>
+          <p lang="th">เธอเข้าร่วมกลุ่ม 7 บาปในฐานะ Lust และกลายเป็นผู้มีอิทธิพลในโลกใต้ดิน ชื่อจริงของเธอเริ่มถูกเรียกน้อยลง ส่วนชื่อนั้นกลับถูกเอ่ยถึงด้วยเสียงที่เบาลงทุกครั้ง</p>
+        </li>
+
+        <li class="timeline__chapter" id="bio-fall"><span>IV · THE FALL</span></li>
+        <li class="fragment fragment--warning" data-reveal>
+          <p class="fragment__num">FRAGMENT 07</p>
+          <h3 class="fragment__title" lang="th">ถูกเปิดโปง</h3>
+          <p lang="th">เมื่อโทนี่ค้นพบตัวตนของเธอ เธอถูกจับกุม และสูญเสียทุกอย่างที่สร้างมา — ธุรกิจ ชื่อเสียง และอำนาจ</p>
+        </li>
+
+        <li class="timeline__chapter" id="bio-contract"><span>V · THE CONTRACT</span></li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 08</p>
+          <h3 class="fragment__title" lang="th">สัญญา</h3>
+          <p lang="th">ในช่วงที่สิ้นหวังที่สุด เธอทำสัญญากับเมมฟิสโต้ เพื่อแลกกับการเป็นผู้รับใช้และตัวแทนของเขา</p>
+        </li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 09</p>
+          <h3 class="fragment__title" lang="th">Rebirth</h3>
+          <p lang="th">พลัง Rebirth หรือ Resurrection ทำให้เธอฟื้นคืนชีพในสุสานนอกเมืองนิวยอร์ก โดยร่างกายกลับคืนสู่สภาพเดียวกับตอนที่ทำสัญญา</p>
+          <a class="text-link" href="#abilities" data-room-link>READ THE ABILITY FILE →</a>
+        </li>
+        <li class="fragment" data-reveal>
+          <p class="fragment__num">FRAGMENT 10</p>
+          <h3 class="fragment__title" lang="th">ความจริงที่ถูกแก้ไข</h3>
+          <p lang="th">เมมฟิสโต้เปลี่ยนแปลงความจริง และจัดให้มีผู้รับผิดแทนเธอ ทำให้เธอสามารถกลับไปสร้างอาณาจักรของตนขึ้นมาได้อีกครั้ง — บนราคาที่คนอื่นเป็นผู้จ่าย</p>
+        </li>
+
+        <li class="timeline__chapter" id="bio-cycle"><span>VI · THE CYCLE</span></li>
+        <li class="fragment fragment--final" data-reveal>
+          <p class="fragment__num">FRAGMENT 11</p>
+          <h3 class="fragment__title" lang="th">วงจร</h3>
+          <p lang="th">แม้ผ่านเหตุการณ์ทั้งหมด เธอยังคงผูกพันกับโทนี่ ความสัมพันธ์ของทั้งสองจึงวนกลับไปสู่วงจรเดิม — ความรัก ความเกลียด ความเป็นพิษ และการทำร้ายกัน ซ้ำแล้วซ้ำเล่า</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 03 RELATIONSHIPS -->
+  <section id="relationships" class="room room--relations" role="dialog" aria-modal="true" aria-labelledby="relationships-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 03</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">CONNECTIONS · 4 FILES</p>
+        <h2 id="relationships-title" class="section-title" tabindex="-1">RELATIONSHIPS</h2>
+        <p class="room__lede" lang="th">เลือกเส้นด้ายเพื่อเปิดแฟ้มความสัมพันธ์ บางเส้นผูกด้วยความรัก บางเส้นผูกด้วยสัญญา และบางเส้นผูกด้วยหนี้ที่ไม่มีวันชำระหมด</p>
+      </header>
+
+      <div class="relations">
+        <div class="relmap" aria-hidden="false">
+          <svg class="relmap__lines" viewBox="0 0 400 400" aria-hidden="true">
+            <path class="relmap__line relmap__line--tony" d="M200 200 C170 150 150 110 110 80"/>
+            <path class="relmap__line relmap__line--tony2" d="M200 200 C150 170 130 120 110 80"/>
+            <path class="relmap__line relmap__line--meph" d="M200 200 C240 150 260 110 290 80"/>
+            <path class="relmap__line relmap__line--sins" d="M200 200 C170 250 140 290 110 320"/>
+            <path class="relmap__line relmap__line--staff" d="M200 200 C230 250 260 290 290 320"/>
+          </svg>
+          <div class="relmap__center"><span>LUST</span></div>
+          <div class="relmap__nodes" role="tablist" aria-label="Relationship files">
+            <button class="relnode relnode--tony" role="tab" id="tab-tony" aria-controls="rel-tony" aria-selected="true" data-rel-tab>TONY STARK</button>
+            <button class="relnode relnode--meph" role="tab" id="tab-meph" aria-controls="rel-meph" aria-selected="false" tabindex="-1" data-rel-tab>MEPHISTO</button>
+            <button class="relnode relnode--sins" role="tab" id="tab-sins" aria-controls="rel-sins" aria-selected="false" tabindex="-1" data-rel-tab>THE SEVEN SINS</button>
+            <button class="relnode relnode--staff" role="tab" id="tab-staff" aria-controls="rel-staff" aria-selected="false" tabindex="-1" data-rel-tab>PARADISE STAFF</button>
+          </div>
+        </div>
+
+        <div class="relfiles">
+          <article class="relfile relfile--tony" id="rel-tony" role="tabpanel" aria-labelledby="tab-tony" tabindex="0">
+            <figure class="relfile__art">
+              <button class="relfile__artbtn" type="button" data-lightbox-open="4" aria-label="Enlarge artwork: the grave embrace">
+                <img src="assets/images/lust/grave-embrace-960.webp" srcset="assets/images/lust/grave-embrace-960.webp 960w, assets/images/lust/grave-embrace.webp 1200w" sizes="(min-width: 960px) 300px, 70vw"
+                     width="1200" height="1801" loading="lazy" decoding="async"
+                     alt="Painted night scene in a cemetery: a man in red armor holds Lust, draped in green, beside a weathered gravestone among autumn shrubs.">
+              </button>
+            </figure>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-A · FIRST LOVE · STATUS: UNRESOLVED</p>
+              <h3 lang="th">โทนี่ สตาร์ค</h3>
+              <p lang="th">รักแรก และบุคคลที่เธอยังตัดใจไม่ได้ ความสัมพันธ์เต็มไปด้วยความผูกพัน ความหึงหวง ความขัดแย้ง และพฤติกรรมที่เป็นพิษ</p>
+              <p lang="th">เขาคือคนที่เปิดโปงตัวตนของเธอ และเป็นเหตุให้เธอสูญเสียทุกอย่าง — แต่ก็ยังเป็นคนที่เธอวนกลับไปหาเสมอ</p>
+              <ul class="threads" aria-label="Relationship threads">
+                <li><span>BOND</span><i style="--v:.95"></i></li>
+                <li><span>JEALOUSY</span><i style="--v:.85"></i></li>
+                <li><span>CONFLICT</span><i style="--v:.9"></i></li>
+                <li><span>TRUST</span><i style="--v:.12"></i></li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="relfile relfile--meph" id="rel-meph" role="tabpanel" aria-labelledby="tab-meph" tabindex="0" hidden>
+            <div class="relfile__seal" aria-hidden="true">
+              <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="#A38A5B" stroke-width="1"/><circle cx="60" cy="60" r="46" fill="none" stroke="#A38A5B" stroke-width=".6" stroke-dasharray="2 4"/><path d="M60 14 L88 98 L16 46 H104 L32 98 Z" fill="none" stroke="#8C2934" stroke-width="1.2"/><circle cx="60" cy="60" r="8" fill="#641B26"/></svg>
+            </div>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-B · CONTRACT HOLDER · STATUS: BINDING</p>
+              <h3 lang="th">เมมฟิสโต้</h3>
+              <p lang="th">ผู้ทำสัญญากับเธอ แลกพลังกับการเป็นตัวแทนและผู้รับใช้ของเขา</p>
+              <p lang="th">เขาเป็นผู้เปลี่ยนแปลงความจริงและจัดให้มีผู้รับผิดแทนเธอ ทุกสิ่งที่เธอได้คืนมา จึงเป็นของที่ยืมมาจากมือของเขา</p>
+              <a class="text-link" href="#abilities" data-room-link>VIEW THE CONTRACT TERMS →</a>
+            </div>
+          </article>
+
+          <article class="relfile relfile--sins" id="rel-sins" role="tabpanel" aria-labelledby="tab-sins" tabindex="0" hidden>
+            <div class="relfile__seal" aria-hidden="true">
+              <svg viewBox="0 0 120 120"><g fill="none" stroke="#A38A5B" stroke-width="1"><circle cx="60" cy="60" r="54"/></g><g fill="#25382D" stroke="#A38A5B" stroke-width=".8"><circle cx="60" cy="16" r="7"/><circle cx="94.4" cy="32.6" r="7"/><circle cx="102.9" cy="69.8" r="7"/><circle cx="79.1" cy="99.6" r="7"/><circle cx="40.9" cy="99.6" r="7"/><circle cx="17.1" cy="69.8" r="7"/><circle cx="25.6" cy="32.6" r="7"/></g><circle cx="60" cy="16" r="7" fill="#8C2934"/></svg>
+            </div>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-C · NETWORK · STATUS: ACTIVE</p>
+              <h3 lang="th">สมาชิกกลุ่ม 7 บาป</h3>
+              <p lang="th">เครือข่ายพันธมิตรทางธุรกิจสีดำ ซึ่งเธอเป็นหนึ่งในเจ็ดที่นั่ง</p>
+              <p lang="th">ตัวตนของสมาชิกอีกหกคนยังไม่ถูกเปิดเผยในแฟ้มนี้</p>
+              <a class="text-link" href="#sins" data-room-link>ENTER THE SEVEN SINS →</a>
+            </div>
+          </article>
+
+          <article class="relfile relfile--staff" id="rel-staff" role="tabpanel" aria-labelledby="tab-staff" tabindex="0" hidden>
+            <div class="relfile__keys" aria-hidden="true">
+              <span>B1-014</span><span>B1-022</span><span>B1-031</span><span>B1-047</span><span>B1-—</span>
+            </div>
+            <div class="relfile__body">
+              <p class="relfile__tag">FILE 03-D · PERSONNEL · STATUS: UNDER CONTRACT</p>
+              <h3 lang="th">มิวแทนต์ที่ทำงานใน Paradise</h3>
+              <p lang="th">ผู้ที่ได้รับที่พักและสวัสดิการ แต่ต้องทำงานภายใต้ระบบอำนาจของเธอ</p>
+              <p lang="th">พวกเขามีหลังคา มีอาหาร และมีรายได้ — สิ่งที่โลกภายนอกไม่เคยให้ แต่การมีที่ไปเพียงแห่งเดียว ก็ไม่ได้แปลว่าได้เลือกเอง</p>
+              <a class="text-link" href="#club" data-room-link>VISIT THE STAFF QUARTERS →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 ABILITIES -->
+  <section id="abilities" class="room room--abilities" role="dialog" aria-modal="true" aria-labelledby="abilities-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 04</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">SUPERNATURAL FILE · CONTRACT-BOUND</p>
+        <h2 id="abilities-title" class="section-title" tabindex="-1">ABILITIES</h2>
+        <p class="ability-name">REBIRTH <span>/</span> RESURRECTION</p>
+      </header>
+
+      <div class="abilities">
+        <figure class="abilities__art">
+          <button class="abilities__artbtn" type="button" data-lightbox-open="7" aria-label="Enlarge artwork: bride of thorns">
+            <img src="assets/images/lust/bride-of-thorns-960.webp" srcset="assets/images/lust/bride-of-thorns-960.webp 960w, assets/images/lust/bride-of-thorns.webp 1441w" sizes="(min-width: 960px) 34vw, 86vw"
+                 width="1441" height="2000" loading="lazy" decoding="async"
+                 alt="Dark painting of a smiling woman in a blood-stained white bridal gown scattered with red roses, wearing a crown of thorns and raising an ornate revolver to her head before a gilded frame.">
+          </button>
+          <figcaption>EXHIBIT B · THE CONDITION</figcaption>
+        </figure>
+
+        <div class="grave">
+          <div class="grave__stone">
+            <p class="grave__rip">HERE SHE RISES</p>
+            <p class="grave__trigger" lang="th">เงื่อนไขเดียวของการฟื้นคืนชีพ คือ <strong>ความตาย</strong></p>
+            <p class="grave__not" lang="th">นี่ไม่ใช่พลังรักษาบาดแผล และไม่ใช่การฟื้นฟูร่างกายในทันที ขณะที่ยังมีชีวิต ร่างกายของเธอเปราะบางเท่ามนุษย์ทั่วไป</p>
+          </div>
+          <ol class="rules" lang="th">
+            <li><span class="rules__n">I</span>ได้รับพลังผ่านสัญญากับเมมฟิสโต้ เมื่ออายุ 25 ปี</li>
+            <li><span class="rules__n">II</span>เมื่อเสียชีวิต เธอจะฟื้นคืนชีพที่หลุมศพของตนเอง ในสุสานนอกเมืองนิวยอร์ก</li>
+            <li><span class="rules__n">III</span>ร่างกายกลับคืนสู่สภาพเดียวกับตอนที่ทำสัญญา</li>
+            <li><span class="rules__n">IV</span>ความทรงจำทั้งหมดยังคงอยู่</li>
+            <li><span class="rules__n">V</span>เธอไม่สามารถฟื้นฟูร่างกายได้ในขณะที่ยังมีชีวิต</li>
+            <li><span class="rules__n">VI</span>ร่างกายยังคงเทียบเท่ากับมนุษย์ธรรมดา</li>
+            <li><span class="rules__n">VII</span>หากยังมีชีวิตอยู่ เธอจะแก่ตัวลงตามปกติ</li>
+            <li><span class="rules__n">VIII</span>ตลอดชีวิตของเธอ ยังไม่เคยมีชีวิตอยู่ต่อเนื่องเกินอายุ 30 ปี</li>
+          </ol>
+        </div>
+      </div>
+
+      <section class="cycle" aria-labelledby="cycle-title">
+        <h3 id="cycle-title" class="sub-title">THE CYCLE — INTERACTIVE MODEL</h3>
+        <div class="cycle__grid">
+          <div class="cycle__dial" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="86" fill="none" stroke="#25382D" stroke-width="10"/>
+              <circle class="cycle__arc" cx="100" cy="100" r="86" fill="none" stroke="#A38A5B" stroke-width="10" stroke-dasharray="540.4" stroke-dashoffset="540.4" transform="rotate(-90 100 100)"/>
+              <text x="100" y="96" text-anchor="middle" class="cycle__age" data-cycle-age-svg>25</text>
+              <text x="100" y="120" text-anchor="middle" class="cycle__unit">BODY AGE</text>
+            </svg>
+          </div>
+          <div class="cycle__panel">
+            <dl class="cycle__stats">
+              <div><dt>BODY AGE</dt><dd data-cycle-age>25</dd></div>
+              <div><dt>YEARS REMEMBERED</dt><dd data-cycle-memory>0</dd></div>
+              <div><dt>REBIRTHS</dt><dd data-cycle-rebirths>0</dd></div>
+              <div><dt>LAST SEEN</dt><dd data-cycle-location lang="th">—</dd></div>
+            </dl>
+            <div class="cycle__actions">
+              <button class="btn btn--ghost" type="button" data-cycle-live>LIVE ONE YEAR</button>
+              <button class="btn btn--crimson" type="button" data-cycle-die>TRIGGER: DEATH</button>
+              <button class="btn btn--text" type="button" data-cycle-reset>RESET MODEL</button>
+            </div>
+            <p class="cycle__log" lang="th" aria-live="polite" data-cycle-log>เริ่มต้นที่อายุ 25 ปี — วันที่สัญญาถูกลงนาม</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="contract">
+        <button class="wax-seal" type="button" aria-expanded="false" aria-controls="contract-terms" data-contract-seal>
+          <span class="wax-seal__disc" aria-hidden="true">XXV</span>
+          <span class="wax-seal__label">BREAK THE CONTRACT SEAL</span>
+        </button>
+        <div id="contract-terms" class="contract__terms" hidden>
+          <p class="contract__head">ADDENDUM · FOUND BENEATH THE SEAL</p>
+          <ol lang="th">
+            <li>ผู้ลงนาม: เพลินพริ้ม ดาฤดี เทวอนันต์ — อายุ ณ วันลงนาม 25 ปี</li>
+            <li>สิ่งที่ถูกส่งคืนหลังความตาย: ร่างกาย ตามสภาพ ณ วันลงนาม</li>
+            <li>สิ่งที่ <em>ไม่</em> อยู่ในเงื่อนไขการส่งคืน: ความทรงจำ — ผู้ลงนามจะจดจำทุกครั้ง</li>
+            <li>ค่าตอบแทน: การเป็นผู้รับใช้และตัวแทนของผู้ถือสัญญา</li>
+          </ol>
+          <p class="contract__sig">— M.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 PARADISE CLUB -->
+  <section id="club" class="room room--club" role="dialog" aria-modal="true" aria-labelledby="club-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 05</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">FLOOR DIRECTORY · RESTRICTED</p>
+        <h2 id="club-title" class="section-title" tabindex="-1">PARADISE CLUB</h2>
+        <p class="room__lede" lang="th">อาคารที่ไม่มีหน้าต่าง ไม่มีนาฬิกา และไม่มีผังฉบับใดตรงกับความจริง เลือกชั้นจากแผงลิฟต์ — แต่อย่าคาดหวังว่าทุกชั้นจะอยู่ในรายการ</p>
+      </header>
+
+      <div class="club">
+        <div class="elevator">
+          <div class="elevator__display" aria-live="polite"><span class="elevator__arrow" data-elev-arrow aria-hidden="true">▲</span><span data-elev-floor>G</span></div>
+          <div class="elevator__panel" role="group" aria-label="Elevator floor selector">
+            <button class="elevator__btn" type="button" data-floor="P" aria-pressed="false"><b>P</b><span>HOTEL</span></button>
+            <button class="elevator__btn" type="button" data-floor="V" aria-pressed="false"><b>V</b><span>PRIVATE</span></button>
+            <button class="elevator__btn" type="button" data-floor="C" aria-pressed="false"><b>C</b><span>CASINO</span></button>
+            <button class="elevator__btn" type="button" data-floor="B" aria-pressed="false"><b>B</b><span>BARS</span></button>
+            <button class="elevator__btn" type="button" data-floor="G" aria-pressed="true"><b>G</b><span>THE CLUB</span></button>
+            <button class="elevator__btn" type="button" data-floor="S" aria-pressed="false"><b>S1</b><span>STAFF</span></button>
+            <button class="elevator__btn elevator__btn--blank" type="button" data-floor="X" aria-pressed="false" aria-label="Unlabeled button"><b>&nbsp;</b><span>&nbsp;</span></button>
+          </div>
+        </div>
+
+        <div class="floor">
+          <svg class="corridor-art" viewBox="0 0 600 260" aria-hidden="true" data-corridor-art></svg>
+          <div class="floor__info">
+            <p class="floor__code" data-floor-code>FLOOR G · THE CLUB</p>
+            <h3 class="floor__title" lang="th" data-floor-title></h3>
+            <p lang="th" data-floor-text></p>
+            <p class="floor__rooms" data-floor-rooms></p>
+            <p class="floor__clear" data-floor-clear></p>
+          </div>
+          <div class="floor__map">
+            <svg viewBox="0 0 360 240" role="img" aria-label="Atmospheric floor map illustration, not to scale" data-floor-map></svg>
+            <p class="floor__mapnote">ATMOSPHERIC ILLUSTRATION · NOT A REAL FLOOR PLAN · EXIT: NOT FOUND</p>
+          </div>
+          <div class="keyfind" data-keyfind hidden>
+            <svg viewBox="0 0 80 30" width="80" height="30" aria-hidden="true"><circle cx="12" cy="15" r="9" fill="none" stroke="#A38A5B" stroke-width="2.5"/><path d="M21 15 H74 M62 15 V24 M70 15 V22" stroke="#A38A5B" stroke-width="2.5" fill="none"/></svg>
+            <div>
+              <p class="keyfind__title">CONCEALED FILE · BRASS KEY Nº 000</p>
+              <p lang="th">ใต้แผงลิฟต์มีลิ้นชักลับซ่อนอยู่ ข้างในมีกุญแจทองเหลืองสลัก 000 และสมุดบัญชีที่ไม่มีชื่อผู้ซื้อแม้แต่บรรทัดเดียว ประตูที่ถูกล็อกในทางเดินล็อบบี้ เปิดได้แล้ว</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="staff-memo">
+        <p class="staff-memo__head">INTERNAL MEMO · PERSONNEL</p>
+        <p lang="th">พนักงานส่วนใหญ่ของ Paradise คือผู้มีความสามารถพิเศษ หรือผู้ที่ไม่มีทางเลือกมากนัก ที่นี่มีห้องพัก อาหาร รายได้ และสวัสดิการให้ — สิ่งที่หลายคนไม่เคยได้รับจากที่ใด</p>
+        <p lang="th">แต่ทุกสัญญาจ้างมีผู้ลงนามเพียงฝ่ายเดียวที่กำหนดเงื่อนไขได้ บางคนเข้ามาเพราะเลือกเอง บางคนเข้ามาเพราะไม่เหลือที่อื่นให้ไป และไม่มีใครในอาคารนี้ที่ไม่รู้ว่า หลังคาเหนือหัวเป็นของใคร</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 06 RUBICON — SEED -->
+  <section id="rubicon" class="room room--rubicon" role="dialog" aria-modal="true" aria-labelledby="rubicon-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 06</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow eyebrow--crimson">SEALED FILE · DO NOT DISTRIBUTE</p>
+        <h2 id="rubicon-title" class="section-title" tabindex="-1">RUBICON — SEED</h2>
+        <p class="fiction-note" lang="th">เนื้อหาในห้องนี้เป็นเรื่องแต่งในโลกของตัวละคร ใช้เป็นองค์ประกอบของเนื้อเรื่องเท่านั้น ไม่ใช่ข้อมูลทางการแพทย์ และไม่ได้อ้างอิงถึงสารใดในโลกจริง</p>
+      </header>
+
+      <div class="sealed" data-sealed>
+        <button class="sealed__cover" type="button" aria-expanded="false" aria-controls="rubicon-file" data-break-seal>
+          <span class="sealed__title">RUBICON — SEED</span>
+          <span class="sealed__aka">ALSO KNOWN AS: RUBI-S</span>
+          <span class="sealed__wax" aria-hidden="true">R</span>
+          <span class="sealed__cta">BREAK THE SEAL</span>
+        </button>
+
+        <div id="rubicon-file" class="rubifile" hidden>
+          <div class="rubifile__warnings" aria-hidden="true">
+            <span>⚠ RESTRICTED</span><span>MEMORY HAZARD</span><span>DEPENDENCY RISK</span>
+          </div>
+          <dl class="rubifile__facts">
+            <div><dt>DESIGNATION</dt><dd>RUBICON — SEED · RUBI-S</dd></div>
+            <div><dt>COMPOSITION</dt><dd><button class="redacted" type="button" data-redacted aria-label="Redacted — try to reveal">██████████████</button></dd></div>
+            <div><dt>CIRCULATION</dt><dd lang="th">แพร่หลายในหมู่ลูกค้าของ Paradise</dd></div>
+            <div><dt>SOURCE</dt><dd><button class="redacted" type="button" data-redacted aria-label="Redacted — try to reveal">███████ ████</button></dd></div>
+          </dl>
+
+          <ol class="rubifile__effects" lang="th">
+            <li><b>01</b>กดทับความทรงจำที่เจ็บปวดไว้ชั่วคราว เป็นเวลาประมาณ 72 ชั่วโมง</li>
+            <li><b>02</b>การใช้ซ้ำอาจนำไปสู่การพึ่งพา</li>
+            <li><b>03</b>การใช้ระยะยาวอาจทำให้สมรรถภาพทางร่างกายลดลง และเกิดอาการด้านความจำก่อนวัยอันควร</li>
+            <li><b>04</b>ผู้ใช้อาจจดจำตัวตนของตนเองและเหตุการณ์ล่าสุดได้ยาก</li>
+            <li><b>05</b>เมื่อฤทธิ์หมดลง ความทรงจำที่เจ็บปวดจะย้อนกลับมา และอาจยากเกินกว่าจะรับมือได้</li>
+          </ol>
+
+          <div class="hours">
+            <label class="hours__label" for="hours-range">HOURS SINCE THE LAST SEED <output data-hours-out for="hours-range">0</output></label>
+            <input id="hours-range" class="hours__range" type="range" min="0" max="96" step="1" value="0" data-hours>
+            <div class="hours__scale" aria-hidden="true"><span>0</span><span>24</span><span>48</span><span class="hours__mark">72</span><span>96</span></div>
+            <div class="hours__state" data-hours-state>
+              <div class="hours__memory" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              <p lang="th" data-hours-text>ความทรงจำที่เจ็บปวดถูกกดทับไว้ ทุกอย่างดูเบาลง — แม้แต่ชื่อของตัวเอง</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 THE SEVEN SINS -->
+  <section id="sins" class="room room--sins" role="dialog" aria-modal="true" aria-labelledby="sins-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 07</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">THE TABLE OF SEVEN</p>
+        <h2 id="sins-title" class="section-title" tabindex="-1">THE SEVEN SINS</h2>
+        <p class="room__lede" lang="th">เจ็ดที่นั่งรอบโต๊ะเดียวกัน เครือข่ายของผู้มีอำนาจในโลกใต้ดิน มีเพียงที่นั่งเดียวที่ตัวตนถูกเปิดเผยในแฟ้มนี้</p>
+      </header>
+
+      <div class="sins">
+        <div class="sins__table">
+          <svg class="sins__ouroboros" viewBox="0 0 300 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="ouro" x1="0" x2="1"><stop offset="0" stop-color="#151a17"/><stop offset=".5" stop-color="#050606"/><stop offset="1" stop-color="#1b221e"/></linearGradient>
+            </defs>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="#25382D" stroke-width="22"/>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="url(#ouro)" stroke-width="16" stroke-dasharray="560 50" stroke-linecap="round" transform="rotate(-80 150 150)"/>
+            <circle cx="150" cy="150" r="96" fill="none" stroke="#A38A5B" stroke-width=".6" stroke-dasharray="3 6" opacity=".5"/>
+            <path d="M163 52 C176 50 186 56 188 63 C186 70 176 74 163 72 Z" fill="#060707" stroke="#2b3a31" stroke-width="1" transform="rotate(8 150 150)"/>
+            <circle cx="180" cy="61" r="1.6" fill="#A38A5B" transform="rotate(8 150 150)"/>
+          </svg>
+          <ul class="seats" role="list">
+            <li style="--i:0"><button class="seat seat--known" type="button" aria-pressed="true" data-seat="0"><span class="seat__num">I</span><span class="seat__name">LUST</span></button></li>
+            <li style="--i:1"><button class="seat" type="button" aria-pressed="false" data-seat="1"><span class="seat__num">II</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:2"><button class="seat" type="button" aria-pressed="false" data-seat="2"><span class="seat__num">III</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:3"><button class="seat" type="button" aria-pressed="false" data-seat="3"><span class="seat__num">IV</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:4"><button class="seat" type="button" aria-pressed="false" data-seat="4"><span class="seat__num">V</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:5"><button class="seat" type="button" aria-pressed="false" data-seat="5"><span class="seat__num">VI</span><span class="seat__name">UNDISCLOSED</span></button></li>
+            <li style="--i:6"><button class="seat" type="button" aria-pressed="false" data-seat="6"><span class="seat__num">VII</span><span class="seat__name">UNDISCLOSED</span></button></li>
+          </ul>
+        </div>
+        <div class="seat-file" aria-live="polite">
+          <div data-seat-file="known">
+            <p class="relfile__tag">SEAT I · IDENTIFIED</p>
+            <h3 lang="th">Lust — เพลินพริ้ม ดาฤดี เทวอนันต์</h3>
+            <p lang="th">เจ้าของ Paradise ผู้ควบคุมธุรกิจบันเทิง โรงแรม คาสิโน และเครือข่ายธุรกิจใต้ดินที่ซ่อนอยู่ภายในอาคาร หนึ่งในสมาชิกกลุ่ม 7 บาป และผู้มีอิทธิพลในโลกใต้ดิน</p>
+          </div>
+          <div data-seat-file="unknown" hidden>
+            <p class="relfile__tag" data-seat-tag>SEAT II · SEALED</p>
+            <h3 lang="th">ยังไม่เปิดเผย</h3>
+            <p lang="th">ตัวตน รูปลักษณ์ และบทบาทของผู้ครองที่นั่งนี้ ยังไม่ถูกเปิดเผย</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 GALLERY -->
+  <section id="gallery" class="room room--gallery" role="dialog" aria-modal="true" aria-labelledby="gallery-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 08</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">THE COLLECTION · 8 WORKS</p>
+        <h2 id="gallery-title" class="section-title" tabindex="-1">GALLERY</h2>
+        <p class="room__lede">Select a work to view it at full size. Artist credits are listed in the CREDITS room.</p>
+      </header>
+
+      <div class="gallery" data-gallery>
+        <div class="gallery__row gallery__row--feature">
+          <figure class="work" style="--r:1"><button type="button" data-lightbox-open="0" aria-label="View: The theater of serpents"><img src="assets/images/lust/theater-of-serpents-960.webp" width="2000" height="2000" loading="lazy" decoding="async" alt="Lust lounging across red theater seats with a gold skull mask, black serpents and a faceless man in a suit behind her."></button><figcaption>I · THE THEATER OF SERPENTS</figcaption></figure>
+          <figure class="work" style="--r:1.321"><button type="button" data-lightbox-open="1" aria-label="View: The red room"><img src="assets/images/lust/red-room-telephone-960.webp" width="2000" height="1514" loading="lazy" decoding="async" alt="Lust lying upside down on a red floor with a telephone, a heart-shaped box and a letter."></button><figcaption>II · THE RED ROOM</figcaption></figure>
+        </div>
+        <div class="gallery__row gallery__row--portraits">
+          <figure class="work" style="--r:.666"><button type="button" data-lightbox-open="4" aria-label="View: The grave embrace"><img src="assets/images/lust/grave-embrace-960.webp" width="1200" height="1801" loading="lazy" decoding="async" alt="A man in red armor holding Lust beside a gravestone at night."></button><figcaption>III · THE GRAVE EMBRACE</figcaption></figure>
+          <figure class="work" style="--r:.707"><button type="button" data-lightbox-open="5" aria-label="View: The office at dusk"><img src="assets/images/lust/office-at-dusk-960.webp" width="1414" height="2000" loading="lazy" decoding="async" alt="Lust seated at a desk in a book-lined office at sunset, stacks of paper at her feet."></button><figcaption>IV · THE OFFICE AT DUSK</figcaption></figure>
+          <figure class="work" style="--r:.707"><button type="button" data-lightbox-open="6" aria-label="View: The office at dusk, masked"><img src="assets/images/lust/office-at-dusk-skull-mask-960.webp" width="1414" height="2000" loading="lazy" decoding="async" alt="The same office scene with Lust's face hidden behind a skull mask."></button><figcaption>V · THE OFFICE, MASKED</figcaption></figure>
+          <figure class="work" style="--r:.721"><button type="button" data-lightbox-open="7" aria-label="View: Bride of thorns"><img src="assets/images/lust/bride-of-thorns-960.webp" width="1441" height="2000" loading="lazy" decoding="async" alt="A smiling woman in a blood-stained bridal gown with red roses and a crown of thorns, raising a revolver to her head."></button><figcaption>VI · BRIDE OF THORNS</figcaption></figure>
+        </div>
+        <div class="gallery__row gallery__row--studies">
+          <figure class="work work--cutout" style="--r:1.439"><button type="button" data-lightbox-open="2" aria-label="View: Character study"><img src="assets/images/lust/lust-cutout-960.webp" width="2000" height="1390" loading="lazy" decoding="async" alt="Full-body study of Lust seated on the floor in a dark green jacket, smiling."></button><figcaption>VII · CHARACTER STUDY</figcaption></figure>
+          <figure class="work work--cutout" style="--r:1.439"><button type="button" data-lightbox-open="3" aria-label="View: Character study, masked"><img src="assets/images/lust/lust-cutout-skull-mask-960.webp" width="2000" height="1390" loading="lazy" decoding="async" alt="Full-body study of Lust wearing a skull mask, in warm tones."></button><figcaption>VIII · CHARACTER STUDY, MASKED</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 CREDITS -->
+  <section id="credits" class="room room--credits" role="dialog" aria-modal="true" aria-labelledby="credits-title" data-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 09</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow">SIGNED RECORDS</p>
+        <h2 id="credits-title" class="section-title" tabindex="-1">CREDITS</h2>
+      </header>
+
+      <section class="credits-block" aria-labelledby="artist-credits-title">
+        <h3 id="artist-credits-title" class="sub-title">ARTIST CREDITS</h3>
+        <p class="credits-block__note">The illustrations on this site belong to their respective artists. Image-specific attribution will be added once confirmed.</p>
+        <ol class="artists" role="list">
+          <li class="artist">
+            <span class="artist__num">Nº 01</span>
+            <span class="artist__name">Artist 01</span>
+            <a class="artist__link" href="https://www.facebook.com/intira.silapoch?locale=th_TH" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook Profile of Artist 01 (opens in a new tab)">Visit Facebook Profile <span aria-hidden="true">↗</span></a>
+          </li>
+          <li class="artist">
+            <span class="artist__num">Nº 02</span>
+            <span class="artist__name">Artist 02</span>
+            <a class="artist__link" href="https://www.facebook.com/aums.thirapaws?locale=th_TH" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook Profile of Artist 02 (opens in a new tab)">Visit Facebook Profile <span aria-hidden="true">↗</span></a>
+          </li>
+          <li class="artist">
+            <span class="artist__num">Nº 03</span>
+            <span class="artist__name">Artist 03</span>
+            <a class="artist__link" href="https://www.facebook.com/profile.php?id=61593459614936&amp;locale=th_TH" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook Profile of Artist 03 (opens in a new tab)">Visit Facebook Profile <span aria-hidden="true">↗</span></a>
+          </li>
+          <li class="artist">
+            <span class="artist__num">Nº 04</span>
+            <span class="artist__name">Artist 04</span>
+            <a class="artist__link" href="https://www.facebook.com/narisara.kanjananapanich?locale=th_TH" target="_blank" rel="noopener noreferrer" aria-label="Visit Facebook Profile of Artist 04 (opens in a new tab)">Visit Facebook Profile <span aria-hidden="true">↗</span></a>
+          </li>
+        </ol>
+      </section>
+
+      <div class="ornament-rule" aria-hidden="true"><span></span></div>
+
+      <section class="credits-block credits-block--dev" aria-labelledby="dev-credits-title">
+        <h3 id="dev-credits-title" class="sub-title">WEBSITE</h3>
+        <p class="dev-credit">Created by <strong>TST Project</strong></p>
+        <p class="credits-block__note">Website design, interaction design and implementation. Sound effects are synthesized in the browser and original to this site.</p>
+      </section>
+
+      <p class="credits-notice" lang="th">เว็บไซต์นี้จัดทำโดย TST Project เพื่อเผยแพร่ผลงานตัวละครและเป็นตัวอย่างงานออกแบบเว็บไซต์ ภาพประกอบและผลงานศิลปะเป็นของนักวาดผู้สร้างสรรค์แต่ละท่านตามเครดิตที่ระบุไว้ เว็บไซต์นี้เป็นแฟนเวิร์กที่ไม่เป็นทางการและไม่มีส่วนเกี่ยวข้องกับ Marvel อย่างเป็นทางการ</p>
+    </div>
+  </section>
+
+  <!-- 000 THE OFFICE (secret) -->
+  <section id="office" class="room room--office" role="dialog" aria-modal="true" aria-labelledby="office-title" data-room data-secret-room>
+    <div class="room__bar">
+      <p class="room__number">ROOM 000</p>
+      <button class="btn btn--ghost room__close" type="button" data-close-room>RETURN TO LOBBY</button>
+    </div>
+    <div class="room__inner">
+      <header class="room__head">
+        <p class="eyebrow eyebrow--crimson">PRIVATE · NOT ON ANY DIRECTORY</p>
+        <h2 id="office-title" class="section-title" tabindex="-1">THE OFFICE</h2>
+      </header>
+      <div class="office">
+        <figure class="office__art" data-office-figure>
+          <img class="office__img office__img--face" src="assets/images/lust/office-at-dusk-960.webp" srcset="assets/images/lust/office-at-dusk-960.webp 960w, assets/images/lust/office-at-dusk.webp 1414w" sizes="(min-width: 960px) 40vw, 90vw" width="1414" height="2000" loading="lazy" decoding="async"
+               alt="Lust seated at a desk in a book-lined office, sunset light pouring through a tall window and balcony railing, stacks of paper at her feet.">
+          <img class="office__img office__img--mask" src="assets/images/lust/office-at-dusk-skull-mask-960.webp" srcset="assets/images/lust/office-at-dusk-skull-mask-960.webp 960w, assets/images/lust/office-at-dusk-skull-mask.webp 1414w" sizes="(min-width: 960px) 40vw, 90vw" width="1414" height="2000" loading="lazy" decoding="async"
+               alt="The same office scene, Lust's face now hidden behind a skull mask.">
+        </figure>
+        <div class="office__text">
+          <p lang="th">ห้องทำงานส่วนตัวที่ไม่มีอยู่ในผังอาคารฉบับใด และเป็นห้องเดียวที่แสงจากภายนอกส่องเข้ามาได้ กองเอกสารบนพื้นคือบัญชีของทุกชั้นในอาคาร — ทั้งชั้นที่มีชื่อ และชั้นที่ไม่มี</p>
+          <p lang="th">ถ้าคุณเข้ามาถึงที่นี่ได้ แปลว่าคุณเดินมาไกลเกินกว่าแขกทั่วไปแล้ว</p>
+          <button class="btn btn--ghost" type="button" aria-pressed="false" data-office-toggle>LOOK AGAIN</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer" data-lightbox hidden>
+    <div class="lightbox__stage" data-lightbox-stage>
+      <img class="lightbox__img" alt="" data-lightbox-img>
+      <p class="lightbox__missing" data-lightbox-missing hidden>ARTWORK UNAVAILABLE</p>
+    </div>
+    <div class="lightbox__bar">
+      <p class="lightbox__caption" data-lightbox-caption></p>
+      <p class="lightbox__count" data-lightbox-count></p>
+      <div class="lightbox__controls">
+        <button class="btn btn--ghost" type="button" data-lightbox-prev aria-label="Previous artwork">← PREV</button>
+        <button class="btn btn--ghost" type="button" data-lightbox-next aria-label="Next artwork">NEXT →</button>
+        <button class="btn btn--gold" type="button" data-lightbox-close>CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="ornament-rule" aria-hidden="true"><span></span></div>
+    <p class="site-footer__title">PARADISE — An Interactive Character Portfolio</p>
+    <p class="site-footer__credit">Created by TST Project</p>
+    <p class="site-footer__fan">Unofficial Fan-Made OC × Marvel Project</p>
+    <p class="site-footer__disclaimer" lang="th">แฟนเวิร์กที่ไม่เป็นทางการ ไม่มีส่วนเกี่ยวข้องหรือได้รับการรับรองจาก Marvel ตัวละครและชื่อที่เป็นของ Marvel เป็นทรัพย์สินของเจ้าของลิขสิทธิ์ ภาพประกอบเป็นของนักวาดแต่ละท่าน</p>
+    <p class="site-footer__meta"><a href="#credits" data-room-link>CREDITS</a> · <span data-secret-count>SECRETS FOUND 0 / 4</span></p>
+  </footer>
+
+  <script src="js/main.js?v=4" defer></script>
+</body>
+</html>

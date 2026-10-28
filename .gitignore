@@ -1,0 +1,11 @@
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Local tooling and build output
+.claude/
+_site/
+node_modules/
